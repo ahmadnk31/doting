@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Clock, Users, Star } from 'lucide-react'
 import Link from 'next/link'
 import { useToast } from "@/hooks/use-toast"
-import { useEffect } from 'react'
+import Image from 'next/image'
 
 
 interface SingleRecipeProps {
@@ -27,7 +27,7 @@ export function SingleRecipe({ recipe }: SingleRecipeProps) {
       <CardContent>
         <Link href={`/recipes/${recipe.id}`}>
           <div className="aspect-video w-full overflow-hidden rounded-lg">
-            <img src={recipe.image} alt={recipe.name} className="object-cover w-full h-full" />
+            <Image width={1000} height={1000} src={recipe.image} alt={recipe.name} className="object-cover w-full h-full" />
           </div>
         </Link>
         <div className="mt-4 flex justify-between items-center">

@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { Recipe } from '@/types/recipe'
 import { SingleRecipe } from '@/components/single-recipe'
-import { Navbar } from '@/components/navbar'
 import { Cart } from '@/components/cart'
 import { getRecipes, searchRecipes, getRecipesByTag, getRecipesByMealType, getRecipeTags } from '@/services/recipe-services'
 import { Input } from "@/components/ui/input"
@@ -14,7 +13,6 @@ import { useInView } from 'react-intersection-observer'
 export default function Home() {
   const [recipes, setRecipes] = useState<Recipe[]>([])
   const [searchQuery, setSearchQuery] = useState('')
-  const [tags, setTags] = useState<string[]>([])
   const [selectedTag, setSelectedTag] = useState('')
   const [selectedMealType, setSelectedMealType] = useState('')
   const [page, setPage] = useState(0)
@@ -54,13 +52,7 @@ export default function Home() {
     }
   }, [inView])
 
-    useEffect(() => {
-        const fetchTags = async () => {
-        const tags = await getRecipeTags()
-        setTags(tags)
-        }
-        fetchTags()
-    }, [])
+    
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()

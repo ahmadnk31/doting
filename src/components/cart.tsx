@@ -1,9 +1,10 @@
 'use client'
-import { useCartStore, CartItem } from '../store/useCartStore'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { useCartStore } from '../store/useCartStore'
+import { Sheet, SheetContent, SheetHeader, SheetTitle} from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Minus, Plus, Trash2 } from 'lucide-react'
+import Image from 'next/image'
 
 export function Cart() {
   const { items, removeFromCart, updateQuantity, clearCart, isOpen, toggleCart } = useCartStore()
@@ -20,7 +21,7 @@ export function Cart() {
           {items.map((item) => (
             <div key={item.id} className="flex items-center justify-between py-4">
               <div className="flex items-center">
-                <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded mr-4" />
+                <Image src={item.image} width={1000} height={1000} alt={item.name} className="w-16 h-16 object-cover rounded mr-4" />
                 <div>
                   <h3 className="font-semibold">{item.name}</h3>
                   <p className="text-sm text-gray-500">${item.price.toFixed(2)}</p>
