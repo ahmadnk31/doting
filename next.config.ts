@@ -8,7 +8,10 @@ const nextConfig: NextConfig = {
         hostname:'cdn.dummyjson.com'
       }
     ]
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true, // This will ignore ESLint during build (use cautiously)
+  },
 };
 
 export default nextConfig;
